@@ -177,7 +177,7 @@ public class NLPrompt : BindingBehaviour
         if (contextMenu == null)
             ShowMouseSelectionCaption();
 
-        if (!string.IsNullOrEmpty(input) || arrowActive  || Time.time > haloOnset + 2f)
+        if (!string.IsNullOrEmpty(input) || arrowActive || Time.time > haloOnset + 2f)
         {
             GameObject addressee;
 

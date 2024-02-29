@@ -15,7 +15,8 @@ public class PopupDrawer : PropertyDrawer
     public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
     {
         // Checks to see what is the type of the provided values and acts accordingly.
-        if (popupAttribute.variableType == typeof(int[]))
+        // modified == to .Equals
+        if (popupAttribute.variableType.Equals(typeof(int[])))
         {
             EditorGUI.BeginChangeCheck();
             index = EditorGUI.Popup(position, label.text, property.intValue, popupAttribute.list);
@@ -24,7 +25,8 @@ public class PopupDrawer : PropertyDrawer
                 property.intValue = index;
             }
         }
-        else if (popupAttribute.variableType == typeof(float[]))
+        // modified == to .Equals
+        else if (popupAttribute.variableType.Equals(typeof(float[])))
         {
             EditorGUI.BeginChangeCheck();
             // Checks all items in the provided list, to see if any of them is a match with the property value, if so assigns that value to the index.
@@ -41,7 +43,8 @@ public class PopupDrawer : PropertyDrawer
                 property.floatValue = Convert.ToSingle(popupAttribute.list[index]);
             }
         }
-        else if (popupAttribute.variableType == typeof(string[]))
+        // modified == to .Equals
+        else if (popupAttribute.variableType.Equals(typeof(string[])))
         {
             EditorGUI.BeginChangeCheck();
             // Checks all items in the provided list, to see if any of them is a match with the property value, if so assigns that value to the index.

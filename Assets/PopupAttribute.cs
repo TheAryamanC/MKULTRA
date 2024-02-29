@@ -84,13 +84,15 @@ public class PopupAttribute : PropertyAttribute
     
     private bool IsVariablesTypeConsistent(object[] list)
     {
-        for (int i = 0; i < list.Length; i++)
+        variableType = list[0].GetType();
+        for (int i = 1; i < list.Length; i++)
         {
-            if (i == 0)
-            {
-                variableType = list[i].GetType();
-            }
-            else if (variableType != list[i].GetType())
+            // if (i == 0)
+            // {
+            //     variableType = list[i].GetType();
+            // }
+            // else 
+            if (!variableType.Equals(list[i].GetType()))
             {
                 Debug.LogError("Popup Property Drawer can only contain one type per variable");
                 return false;

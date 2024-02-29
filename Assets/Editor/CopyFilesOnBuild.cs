@@ -19,9 +19,12 @@ public class CopyResourcesPostprocessor
                 targetDirectory = Path.ChangeExtension(pathToBuiltProject, null) + "_data";
                 break;
 
-            case BuildTarget.StandaloneOSXIntel:
-                targetDirectory = pathToBuiltProject + "/Contents";
-                break;
+            /// <summary>
+            /// removed from unity 2017
+            /// <summary>
+            // case BuildTarget.StandaloneOSXIntel:
+            //     targetDirectory = pathToBuiltProject + "/Contents";
+            //     break;
 
             default:
                 throw new Exception("Don't know how to build Prolog code for target: "+target);

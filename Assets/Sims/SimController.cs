@@ -464,7 +464,8 @@ public class SimController : PhysicalObject
     private void UpdateLocations()
     {
         // TODO: FIX THIS SO THAT DESTROYED OBJECTS GET THEIR ENTRIES GC'ed.
-        foreach (var p in Registry<PhysicalObject>())
+        // Registry -> FindObjectsOfType? - creating null reference
+        foreach (var p in FindObjectsOfType<PhysicalObject>())
         {
             var o = p.gameObject;
             var n = locationRoot.ChildWithKey(o);
